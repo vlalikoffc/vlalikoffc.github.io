@@ -1,39 +1,120 @@
 <!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>влал</title>
-<style>
-body {
-  background: #000;
-  color: #eee;
-  font-family: monospace;
-  padding: 20px;
-}
-button {
-  background: #111;
-  color: #0f0;
-  border: 1px solid #0f0;
-  padding: 6px 10px;
-  cursor: pointer;
-}
-</style>
-</head>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Влал — персональная страница</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="background" aria-hidden="true"></div>
 
-<body>
-<h1>я влал</h1>
+    <header class="hero" id="top">
+      <nav class="hero-nav">
+        <span class="logo">Влал</span>
+        <a class="nav-link" href="https://github.com/vlalikoffc" target="_blank" rel="noreferrer">
+          GitHub
+        </a>
+      </nav>
 
-<p>занимаюсь влалочивством.</p>
+      <div class="hero-content">
+        <p class="eyebrow">Персональная зона экспериментов</p>
+        <h1>Я — Влал</h1>
+        <p class="subtitle">Мне нечего делать, поэтому мне интересно программировать.</p>
+        <p class="subtext">Экспериментирую, делаю странные и интересные вещи.</p>
 
-<p>этот сайт — хранилище идей.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="https://github.com/vlalikoffc" target="_blank" rel="noreferrer">
+            GitHub профиль
+          </a>
+          <button class="btn secondary" type="button" data-scroll="projects">
+            Мои проекты
+          </button>
+        </div>
+      </div>
+    </header>
 
-<p>проекты: глупый тг бот 🤖</p>
+    <main>
+      <section class="projects" id="projects">
+        <div class="section-header">
+          <h2>Проекты</h2>
+          <p>То, что уже дышит, и то, что ждёт вдохновения.</p>
+        </div>
 
-<p>мысли: надо бы завладеть чатом gpt.</p>
+        <div class="cards">
+          <article
+            class="card card-active has-tooltip"
+            data-tooltip="Бот работает только когда мой ПК включён"
+            data-modal="telegram"
+            tabindex="0"
+          >
+            <div class="card-media">
+              <img
+                src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=900&q=80"
+                alt="Абстрактная обложка Telegram Bot"
+                loading="lazy"
+                data-fallback="telegram"
+              >
+              <span class="card-status active">Active</span>
+            </div>
+            <div class="card-body">
+              <h3>Telegram Bot</h3>
+              <p>
+                Бот, который показывает:<br>
+                — что я делаю<br>
+                — что я слушаю<br>
+                — сколько времени я уже за ПК<br>
+                и другие живые статусы.
+              </p>
+            </div>
+            <div class="card-glow" aria-hidden="true"></div>
+          </article>
 
-<button onclick="alert('идея ещё не сформировалась')">
-ещё мысль
-</button>
+          <article class="card card-disabled" aria-disabled="true">
+            <div class="card-media muted">
+              <div class="placeholder">OpenVPN GUI</div>
+              <span class="card-status muted">Not implemented</span>
+            </div>
+            <div class="card-body">
+              <h3>OpenVPN GUI</h3>
+              <p>Тихий уголок идеи, которая пока не взлетела.</p>
+              <span class="warning">Проект не реализован</span>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
 
-</body>
+    <footer class="site-footer">
+      <span>Влал · GitHub Pages</span>
+      <a href="https://github.com/vlalikoffc" target="_blank" rel="noreferrer" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.071 1.531 1.033 1.531 1.033.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.094.39-1.988 1.029-2.688-.103-.253-.446-1.271.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.026 2.747-1.026.546 1.379.203 2.397.1 2.65.64.7 1.028 1.594 1.028 2.688 0 3.848-2.338 4.695-4.566 4.943.36.31.68.919.68 1.852 0 1.335-.012 2.413-.012 2.743 0 .268.18.58.688.481A10.019 10.019 0 0022 12.017C22 6.484 17.523 2 12 2z"
+          ></path>
+        </svg>
+      </a>
+    </footer>
+
+    <div class="modal" id="modal" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="modal-backdrop" data-close="modal"></div>
+      <div class="modal-card" role="document">
+        <button class="modal-close" type="button" data-close="modal" aria-label="Закрыть окно">×</button>
+        <h3>Telegram Bot</h3>
+        <p>
+          Этот проект живёт, пока живёт мой ПК. Внутри — статусы, музыка и ощущение присутствия.
+        </p>
+        <div class="modal-actions">
+          <a class="btn primary" href="https://github.com/vlalikoffc" target="_blank" rel="noreferrer">
+            Открыть GitHub проекта
+          </a>
+          <a class="btn secondary" href="https://t.me" target="_blank" rel="noreferrer">
+            Перейти в Telegram
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
 </html>
